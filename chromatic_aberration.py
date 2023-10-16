@@ -32,5 +32,5 @@ def chromatic_aberation(PATH,offset = [[0,0,0],[0,0,0]],verbose = True):
         img_with_boarders.show()
     return img_with_boarders
 
-img = chromatic_aberation('Data/Penguins.jpg',offset = [[10,0,-10],[-10,-10,-20]],verbose = True)
-img.save('Results/chromatic_aberation.jpg')
+#img = chromatic_aberation('Data/Penguins.jpg',offset = [[10,0,-10],[-10,-10,-20]],verbose = True)
+#img.save('Results/chromatic_aberation.jpg')
