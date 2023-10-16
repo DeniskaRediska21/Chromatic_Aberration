@@ -2,8 +2,12 @@ import numpy as np
 from PIL import Image
 
 
-def chromatic_aberation(PATH,offset = [[0,0,0],[0,0,0]],verbose = True):
-    img = np.array(Image.open(PATH))
+def chromatic_aberation(PATH = '',offset = [[0,0,0],[0,0,0]],verbose = True,IMAGE = None):
+    if IMAGE == None:
+        img = np.array(Image.open(PATH))
+    else:
+        img = np.array(IMAGE)
+
     offset = np.array(offset)
 
     min_abs= [offset[0,np.where(np.abs(offset[0])==np.min(np.abs(offset[0])))],offset[1,np.where(np.abs(offset[1])==np.min(np.abs(offset[1])))]]
@@ -33,4 +37,5 @@ def chromatic_aberation(PATH,offset = [[0,0,0],[0,0,0]],verbose = True):
     return img_with_boarders
 
 #img = chromatic_aberation('Data/Penguins.jpg',offset = [[10,0,-10],[-10,-10,-20]],verbose = True)
+#chromatic_aberation(IMAGE=img,offset = [[10,0,-10],[-10,-10,-20]],verbose = True)
 #img.save('Results/chromatic_aberation.jpg')
